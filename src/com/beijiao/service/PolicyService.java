@@ -52,4 +52,5 @@ public interface PolicyService {
 	public List<Policy> selectPolicyArea_app(String area);
 	public List<Policy> searchIndustryPlocy_app(String pClassName);
 	public List<Policy> searchPolicy_app(String search);
+	public List<Policy> selectPolicySource_app(String source);
 }

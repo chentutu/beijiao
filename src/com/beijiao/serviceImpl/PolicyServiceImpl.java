@@ -181,6 +181,12 @@ public class PolicyServiceImpl implements PolicyService {
 		return policyMapper.searchPolicy_app(search);
 	}
 
+	@Override
+	public List<Policy> selectPolicySource_app(String source) {
+		// TODO Auto-generated method stub
+		return policyMapper.selectPolicySource_app(source);
+	}
+
 
 
 

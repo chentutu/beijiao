@@ -129,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<span id="source">发布时间：${picPol.picPolTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${picPol.picPolSource}</span>
 		<hr>
       </div>
-		<%-- <img src="upload/pic/${news.newsLink}" > --%>
+		 <img src="${picPol.picPolFile}" >
 		<hr>
 		<p>${picPol.picPolContent}</p>
 	 </c:if>
