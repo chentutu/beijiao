@@ -45,4 +45,5 @@ public interface PolicyMapper {
 	public List<Policy> searchIndustryPlocy_app(String pClassName);
 	public List<Policy> searchPolicy_app(String search);
 	public List<Policy> getLatestPolicy_app(String polTime);
+	public List<Policy> selectPolicySource_app(String source);
 }

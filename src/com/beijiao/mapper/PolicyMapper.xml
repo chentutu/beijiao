@@ -97,7 +97,7 @@ delete from policy where policyId=#{policyId}
 
 
 <!--  ............................................webApp.................................................-->
-<select id="selectAllPolicy_app"  parameterType="java.util.Map" resultMap="policyList">
+<select id="selectAllPolicy_app"  parameterType="String" resultMap="policyList">
 select * from policy order by policyId desc 
 </select>
           
@@ -109,20 +109,30 @@ select * from policy where polDrade=#{type} order by policyId desc
 select policyId,polTitle,polArea,polTime from policy where polArea=#{area} limit 7
 </select> 
 
-<select id="searchIndustryPlocy_app" parameterType="java.util.Map" resultMap="policyList">
+<select id="searchIndustryPlocy_app" parameterType="String" resultMap="policyList">
 select * from policy where pClassName=#{pClassName} order by policyId desc 
 </select> 
 
 
-<select id="searchPolicy_app" parameterType="java.util.Map" resultMap="policyList">
+<select id="searchPolicy_app" parameterType="String" resultMap="policyList">
    <!-- select * from policy where policyTitle,polContent like CONCAT(CONCAT('%', #{search}), '%') -->
    select * from policy where
-             <if test="search != null">  
-                polTitle like CONCAT('%','${search}','%')  
+             <if test="_parameter != null">  
+                polTitle like CONCAT('%','${_parameter}','%')  
             </if>  
-            <if test="search != null">  
-                OR polContent like CONCAT('%','${search}','%') 
+            <if test="_parameter != null">  
+                OR polContent like CONCAT('%','${_parameter}','%') 
             </if> 
+            order by policyId desc 
+</select>
+
+
+<select id="selectPolicySource_app" parameterType="String" resultMap="policyList">
+   <!-- select * from policy where policyTitle,polContent like CONCAT(CONCAT('%', #{search}), '%') -->
+   select * from policy where
+             <if test="_parameter != null"> 
+                polSource like CONCAT('%','${_parameter}','%')  
+            </if>  
             order by policyId desc 
 </select>
 </mapper>

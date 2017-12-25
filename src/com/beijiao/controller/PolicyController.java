@@ -309,7 +309,7 @@ public class PolicyController {
 	@RequestMapping("app_allPolicy")
 	public List<Policy> app_allPolicy(HttpServletRequest request, HttpServletResponse response){
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		System.out.println("测试");
+		//System.out.println("测试");
 		List<Policy> policys=policyService.selectAllPolicy_app();
 		//System.out.println(policys);
 		return policys;
@@ -333,6 +333,25 @@ public class PolicyController {
 		return policys;
 	}
 	
+	
+	/*
+	 * 政策来源
+	 */
+	@ResponseBody 
+	@RequestMapping("app_sourcePolicy")
+	public List<Policy> app_SourcePolicy(HttpServletRequest request, HttpServletResponse response,String source){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		System.out.println(source);
+		if(source.equals("所有政策")){
+			//System.out.println("test");
+			List<Policy> policys=policyService.selectAllPolicy_app();
+			return policys;
+		}else{
+			List<Policy> policys=policyService.selectPolicySource_app(source);
+			return policys;
+		}
+	}
+	
 	/*
 	 * 所有行业政策
 	 */
@@ -340,15 +359,9 @@ public class PolicyController {
 	@RequestMapping("app_IndustryPolicy")
 	public List<Policy> app_IndustryPolicy(HttpServletRequest request, HttpServletResponse response,String pClassName){
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		String pClassName1=null;
-		try {
-			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		List<Policy> policys=policyService.searchIndustryPlocy_app(pClassName1);
+		List<Policy> policys=policyService.searchIndustryPlocy_app(pClassName);
 		return policys;
+		
 	}
 	
 	/*
