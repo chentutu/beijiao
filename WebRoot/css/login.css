@@ -169,7 +169,17 @@ input[type="submit"]:hover {
 	color:#de3237;
 	border:2px solid #de3237;
 }
-
+.list_content{
+	height:45px;
+	width:410px;	
+    border: 1px ridge rgba(0,255,255, 0.11); 
+	border-radius: 0.3em;
+	-webkit-border-radius:0.3em;
+	-moz-border-radius:0.3em;
+	-o-border-radius:0.3em;	
+	padding-left:55px;
+    background:#F0EEF0; 
+}
 /*************************************************表单部分结束************************************/
 
 
