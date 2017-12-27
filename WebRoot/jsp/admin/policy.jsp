@@ -104,6 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <option value="医药">医药</option>
     <option value="食品">食品</option>
     <option value="农林渔牧">农林渔牧</option>
+    <option value="其他">其他</option>
     </select>
     </div>    
     </li>
@@ -111,14 +112,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <li><label>政策发布等级<b>*</b></label>
     <div class="vocation" >
     <select class="select1" name="polDrade">
-    <option value="国家">国家</option>
-    <option value="市">北京市</option>
-    <option value="区">区</option>
+    <option value="国家政策">国家政策</option>
+    <option value="市级政策">市级政策</option>
+    <option value="地方政策">地方政策</option>
     </select>
     </div> 
     </li>
     
-    <li><label>政策发布等级<b>*</b></label>
+    <!-- <li><label>政策发布等级<b>*</b></label>
     <div class="vocation" >
     <select class="select1" name="polArea">
     <option value="朝阳区">朝阳区</option>
@@ -126,7 +127,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <option value="昌平区">昌平区</option>
     </select>
     </div> 
-    </li>
+    </li> -->
+    
     <li>
     <label>政策来源<b>*</b></label>    
     <input name="polSource" type="text" class="dfinput" value="" placeholder="请填写政策来源"  style="width:518px;"/> 
@@ -135,18 +137,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <label>政策内容<b>*</b></label>
     <textarea id="content7" name="polContent" style="width:700px;height:250px;visibility:hidden;"></textarea>   
     </li>
-    <li>
+   <!--  <li>
     <label>政策文件<b>*</b></label>    
-    <!--  <input type="text" class="dfinput" id="fileName" value=""  style="width:518px;"/>
-    <input class="btn"  type="file" name="file" onChange="if(this.value)insertTitle(this.value);" value="请上传政策文件" />  
-     -->
      <div class="file-box">         
      <input type='text' name='fileName' id="fileName" value="" class='dfinput' placeholder="请上传政策文件"/>  
      <input type='button' class='btn' value="浏览上传..." />
      <input type="file" name="file" class="file" id="file" size="28" onChange="if(this.value)insertTitle(this.value);" />      
      <i></i>  
     </div>	 
-    </li>
+    </li> -->
      <li>
     <label>发布时间<b>*</b></label>    
     <input name="polTime" type="date" class="dfinput" value=""  style="width:518px;"/>

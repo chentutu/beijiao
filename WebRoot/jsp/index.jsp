@@ -190,23 +190,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<div id="tab2">
 					<ul id="options">
-						<li class="on">通知公告</li>
-						<li class="off">政策解读</li>
+						<li class="on">政策解读</li>
+						<li class="off">通知公告</li>
 						<!-- <li class="off">文件发布</li> -->
 					</ul>
 					<div id="firstPage" class="show">
-						<ul>
-						<c:forEach items="${notices}" var="notices">
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="notice/toNotice?noticeId=${notices.noticeId}" title="">${notices.noticeTitle}</a>
-							<span class="time">[${notices.noticeTime}]</span>
-						</li>
-						</c:forEach>
-					</ul>
-						<a class="more" href="notice/toNotices">更多>></a>
-					</div>
-					<div id="secondPage" class="hide">
 						<ul>
 						<c:forEach items="${polInterpres}" var="polInterpres">
 						<li>
@@ -217,6 +205,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</c:forEach>
 					</ul>
 						<a class="more" href="polInterpre/tolistPolInterpre">更多>></a>
+					</div>
+					<div id="secondPage" class="hide">
+						<ul>
+						<c:forEach items="${notices}" var="notices">
+						<li>
+							<img src="images/dian.png" width="5px" height="5px" alt="" />
+							<a href="notice/toNotice?noticeId=${notices.noticeId}" title="">${notices.noticeTitle}</a>
+							<span class="time">[${notices.noticeTime}]</span>
+						</li>
+						</c:forEach>
+					</ul>
+						<a class="more" href="notice/toNotices">更多>></a>
 					</div>
 				</div>
 			</div>

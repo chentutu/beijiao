@@ -151,13 +151,7 @@ public class PolicyController {
 	 * */
 	@RequestMapping("toIndustryPolicy")
 	public String selectIndustryPolicy(Model model,String pClassName,String pageNow){
-		/*String pClassName1=null;
-		try {
-			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+		
 		System.out.println(pClassName+"行业分类");
 		PClass hint=new PClass();
 		hint.setpClassName(pClassName);
@@ -255,12 +249,12 @@ public class PolicyController {
 	
 	/*addPolicy*/
 	@RequestMapping("addPolicy")
-	public String addPolicy(@RequestParam MultipartFile file,Policy policy,HttpServletRequest request){
+	public String addPolicy(Policy policy,HttpServletRequest request){
 		
 		policy.setPolTime(String.valueOf(policy.getPolTime()));
-		UpAndDownload upFile=new UpAndDownload();
+	/*	UpAndDownload upFile=new UpAndDownload();
 		String filename=upFile.doUploadDoc(file, request);
-		policy.setPolFile(filename);
+		policy.setPolFile(filename);*/
 		int n=policyService.addPolicy(policy);				
 		if(n!=0){
 		   return "forward:allPolicy";
@@ -359,7 +353,9 @@ public class PolicyController {
 	@RequestMapping("app_IndustryPolicy")
 	public List<Policy> app_IndustryPolicy(HttpServletRequest request, HttpServletResponse response,String pClassName){
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		System.out.println(pClassName);
 		List<Policy> policys=policyService.searchIndustryPlocy_app(pClassName);
+		System.out.println(policys);
 		return policys;
 		
 	}
