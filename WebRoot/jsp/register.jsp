@@ -80,8 +80,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<option value="医药">医药</option>
 				<option value="食品">食品</option>
 				<option value="农林渔牧">农林渔牧</option>
-				
-				</select>
+                </select>
+
 			</li>
            <br/>
 
